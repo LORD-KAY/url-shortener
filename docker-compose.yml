@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+    backend:
+        container_name: backend
+        build:
+            context: ./back-end
+        environment:
+            - APP_URL=https://pbid.io
+            - DATABASE_URL=mongodb://db_mongo/shortener
+        depends_on:
+            - db
+        ports:
+            - '8090:8090'
+    db:
+        container_name: db_mongo
+        image: mongo
+        volumes:
+            - ./mongodata:/data/db
+        ports:
+            - "27017:27017"
+    frontend:
+        container_name: frontend
+        build:
+            context: ./urlshorter
+        environment:
+            - VUE_APP_BASE_URL=http://localhost:8090
+        ports:
+            - "8080:8080"
