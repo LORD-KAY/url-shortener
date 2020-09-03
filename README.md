@@ -10,12 +10,12 @@
 ```
 ### Clone the repository
 ```bash
-git clone https://github.com/LORD-KAY/urlshortener
+git clone https://github.com/LORD-KAY/url-shortener.git 
 ```
 
 Navigate to the root directory i.e the urlshortener
 ```bash
-cd urlshortener/
+cd url-shortener/
 ```
 
 ### Spin up the app containers
